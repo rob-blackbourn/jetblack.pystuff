@@ -125,7 +125,8 @@ class ChineseDate(object):
     def winter_solstice_on_or_before(cls, ordinal):
         """Return ordinal date, in the Chinese zone, of winter solstice
         on or before ordinal date, 'ordinal'."""
-        approx = estimate_prior_solar_longitude(Season.WINTER, cls.midnight(ordinal + 1))
+        midnight_tomorrow = cls.midnight(ordinal + 1)
+        approx = estimate_prior_solar_longitude(Season.WINTER, midnight_tomorrow)
         return next_int(int(math.floor(approx)) - 1, lambda day: Season.WINTER < solar_longitude(cls.midnight(1 + day)))
     
     @classmethod    
@@ -157,7 +158,8 @@ class ChineseDate(object):
     @classmethod    
     def new_year(cls, gregorian_year):
         """Return ordinal date of Chinese New Year in Gregorian year, 'gregorian_year'."""
-        return cls.new_year_on_or_before(GregorianDate(gregorian_year, MonthOfYear.JULY, 1).toordinal())
+        july1 = GregorianDate(gregorian_year, MonthOfYear.JULY, 1).toordinal()
+        return cls.new_year_on_or_before(july1)
 
     @classmethod
     def is_prior_leap_month(cls, m_prime, m):

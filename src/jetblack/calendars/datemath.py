@@ -41,9 +41,9 @@ class TimeUnit(IntEnum):
     
 class Season(IntEnum):
     SPRING = 0
-    SUMMER = 1
-    AUTUMN = 3
-    WINTER = 4
+    SUMMER = 90
+    AUTUMN = 180
+    WINTER = 270
     
 def weekday_fromordinal(ordinal):
     """Return day of the week from a fixed date 'date'."""
