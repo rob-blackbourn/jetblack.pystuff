@@ -1,9 +1,9 @@
 import math
 from jetblack.calendars.utils  import amod
-from jetblack.calendars.datemath import DayOfWeek, MonthOfYear
+from jetblack.calendars.months import MonthOfYear
 from jetblack.calendars.systems.gregorian import GregorianDate
 from jetblack.calendars.utils import reduce_cond
-from jetblack.calendars.datemath import weekday_fromordinal
+from jetblack.calendars.weekdays import DayOfWeek, weekday_fromordinal
 
 class IsoDate(object):
     

@@ -1,4 +1,5 @@
-from jetblack.calendars.datemath import MonthOfYear, Season
+from jetblack.calendars.months import MonthOfYear
+from jetblack.calendars.seasons import Season
 from jetblack.calendars.trigonometry import angle
 from jetblack.calendars.utils import ifloor, iround, quotient
 from jetblack.calendars.location import Location

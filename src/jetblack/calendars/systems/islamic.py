@@ -6,7 +6,7 @@ from jetblack.calendars.location import Location
 from jetblack.calendars.systems.gregorian import GregorianDate
 from jetblack.calendars.ymd import YearMonthDay
 from jetblack.calendars.utils import list_range
-from jetblack.calendars.datemath import MonthOfYear
+from jetblack.calendars.months import MonthOfYear
 from jetblack.calendars.lunar import MEAN_SYNODIC_MONTH
 
 class IslamicDate(YearMonthDay):

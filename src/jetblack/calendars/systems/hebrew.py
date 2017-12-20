@@ -4,7 +4,9 @@ import math
 from mpmath import mpf
 from jetblack.calendars.utils import summa
 from jetblack.calendars.trigonometry import angle
-from jetblack.calendars.datemath import DayOfWeek, MonthOfYear, Season
+from jetblack.calendars.months import MonthOfYear
+from jetblack.calendars.weekdays import DayOfWeek, weekday_fromordinal, before_weekday
+from jetblack.calendars.seasons import Season
 from jetblack.calendars.systems.julian import JulianDate
 from jetblack.calendars.systems.coptic import CopticDate
 from jetblack.calendars.location import Location
@@ -14,7 +16,6 @@ from jetblack.calendars.ymd import YearMonthDay
 from jetblack.calendars.utils import next_int, final_int, list_range
 from jetblack.calendars.solar import solar_longitude_after
 from jetblack.calendars.lunar import lunar_phase, MEAN_SYNODIC_MONTH
-from jetblack.calendars.datemath import weekday_fromordinal, before_weekday
 
 class HebrewMonth(IntEnum):
     NISAN = 1

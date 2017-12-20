@@ -1,10 +1,11 @@
 import math
 from mpmath import mpf
-from jetblack.calendars.datemath import DayOfWeek, MonthOfYear
+from jetblack.calendars.months import MonthOfYear
+from jetblack.calendars.weekdays import DayOfWeek, after_weekday
 from jetblack.calendars.systems.gregorian import GregorianDate
 from jetblack.calendars.ymd import YearMonthDay
 from jetblack.calendars.utils import list_range
-from jetblack.calendars.datemath import easter, after_weekday
+from jetblack.calendars.datemath import easter
 
 class JulianDay(object):
     

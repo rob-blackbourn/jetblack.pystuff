@@ -2,7 +2,8 @@ import math
 from mpmath import mpf
 from jetblack.calendars.utils import amod, signum, binary_search, invert_angular
 from jetblack.calendars.trigonometry import angle, sin_degrees
-from jetblack.calendars.datemath import DayOfWeek, MonthOfYear
+from jetblack.calendars.months import MonthOfYear
+from jetblack.calendars.weekdays import DayOfWeek, on_or_after_weekday
 from jetblack.calendars.location import Location
 from jetblack.calendars.timemath import Clock
 from jetblack.calendars.utils import reduce_cond, next_int, is_in_range, list_range
@@ -11,7 +12,6 @@ from jetblack.calendars.astrological import precession
 from jetblack.calendars.lunar import lunar_longitude
 from jetblack.calendars.systems.julian import JulianDate
 from jetblack.calendars.systems.gregorian import GregorianDate
-from jetblack.calendars.datemath import on_or_after_weekday
 
 
 class OldHindu(object):

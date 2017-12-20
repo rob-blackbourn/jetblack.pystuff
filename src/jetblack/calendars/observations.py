@@ -4,7 +4,9 @@ from jetblack.calendars.timemath import Clock
 from jetblack.calendars.location import URBANA
 from jetblack.calendars.solar import solar_longitude_after, solar_longitude
 from jetblack.calendars.astrological import declination
-from jetblack.calendars.datemath import MonthOfYear, DayOfWeek, Season
+from jetblack.calendars.months import MonthOfYear
+from jetblack.calendars.weekdays import DayOfWeek
+from jetblack.calendars.seasons import Season
 from jetblack.calendars.systems.gregorian import GregorianDate
 from jetblack.calendars.trigonometry import angle, arctan_degrees, tan_degrees
 from jetblack.calendars.location import Location

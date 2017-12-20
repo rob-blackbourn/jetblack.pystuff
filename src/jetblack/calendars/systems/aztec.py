@@ -1,6 +1,6 @@
 import math
 from jetblack.calendars.utils import amod, reduce_cond
-from jetblack.calendars.datemath import MonthOfYear
+from jetblack.calendars.months import MonthOfYear
 from jetblack.calendars.systems.julian import JulianDate
 
 AZTEC_CORRELATION = JulianDate(1521, MonthOfYear.AUGUST, 13).toordinal()

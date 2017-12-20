@@ -1,11 +1,10 @@
-from operator import mod
+from enum import IntEnum
 from mpmath import mpf
 from jetblack.calendars.trigonometry import sin_degrees, cos_degrees, normalized_degrees 
 from jetblack.calendars.utils import iround, poly, sigma, invert_angular
 from jetblack.calendars.utils import next_int, final_int
 from jetblack.calendars.astrological import julian_centuries, nutation, J2000, universal_from_dynamical
 from jetblack.calendars.solar import solar_anomaly, solar_longitude
-from enum import IntEnum
 
 MEAN_SYNODIC_MONTH = mpf(29.530588861)
 
@@ -102,8 +101,7 @@ def lunar_longitude(tee):
     jupiter = ((318/1000000) * sin_degrees(A2))
     flat_earth = ((1962/1000000) * sin_degrees(cap_L_prime - cap_F))
 
-    return mod(cap_L_prime + correction + venus +
-               jupiter + flat_earth + nutation(tee), 360)
+    return (cap_L_prime + correction + venus + jupiter + flat_earth + nutation(tee)) % 360
 
 def lunar_latitude(tee):
     """Return the latitude of moon (in degrees) at moment, tee.
@@ -170,7 +168,7 @@ def lunar_node(tee):
     Adapted from eq. 47.7 in "Astronomical Algorithms"
     by Jean Meeus, Willmann_Bell, Inc., 2nd ed., 1998
     with corrections June 2005."""
-    return mod(moon_node(julian_centuries(tee)) + 90, 180) - 90
+    return (moon_node(julian_centuries(tee)) + 90) % 180 - 90
 
 def alt_lunar_node(tee):
     """Return Angular distance of the node from the equinoctal point
@@ -287,10 +285,10 @@ def lunar_phase(tee):
     An angle of 0 means a new moon, 90 degrees means the
     first quarter, 180 means a full moon, and 270 degrees
     means the last quarter."""
-    phi = mod(lunar_longitude(tee) - solar_longitude(tee), 360)
+    phi = (lunar_longitude(tee) - solar_longitude(tee)) % 360
     t0 = nth_new_moon(0)
     n = iround((tee - t0) / MEAN_SYNODIC_MONTH)
-    phi_prime = (360 * mod((tee - nth_new_moon(n)) / MEAN_SYNODIC_MONTH, 1))
+    phi_prime = 360 * (((tee - nth_new_moon(n)) / MEAN_SYNODIC_MONTH) % 1)
     if abs(phi - phi_prime) > 180:
         return phi_prime
     else:
@@ -299,10 +297,7 @@ def lunar_phase(tee):
 def lunar_phase_at_or_before(phi, tee):
     """Return the moment UT of the last time at or before moment, tee,
     when the lunar_phase was phi degrees."""
-    tau = (tee -
-           (MEAN_SYNODIC_MONTH  *
-            (1/360) *
-            mod(lunar_phase(tee) - phi, 360)))
+    tau = tee - (MEAN_SYNODIC_MONTH * (1/360) * ((lunar_phase(tee) - phi) % 360))
     a = tau - 2
     b = min(tee, tau +2)
     return invert_angular(lunar_phase, phi, a, b)
@@ -310,10 +305,7 @@ def lunar_phase_at_or_before(phi, tee):
 def lunar_phase_at_or_after(phi, tee):
     """Return the moment UT of the next time at or after moment, tee,
     when the lunar_phase is phi degrees."""
-    tau = (tee +
-           (MEAN_SYNODIC_MONTH    *
-            (1/360) *
-            mod(phi - lunar_phase(tee), 360)))
+    tau = tee + (MEAN_SYNODIC_MONTH * (1/360) * ((phi - lunar_phase(tee)) % 360))
     a = max(tee, tau - 2)
     b = tau + 2
     return invert_angular(lunar_phase, phi, a, b)

@@ -2,7 +2,7 @@ from enum import IntEnum
 from jetblack.calendars.utils import amod
 from jetblack.calendars.systems.julian import JulianDate
 from jetblack.calendars.utils import reduce_cond
-from jetblack.calendars.datemath import MonthOfYear
+from jetblack.calendars.months import MonthOfYear
 
 class Event(IntEnum):
     Kalends = 1

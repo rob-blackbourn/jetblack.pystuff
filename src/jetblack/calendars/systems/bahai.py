@@ -1,7 +1,8 @@
 from mpmath import mpf
 import math
 from jetblack.calendars.location import Location
-from jetblack.calendars.datemath import MonthOfYear, Season
+from jetblack.calendars.months import MonthOfYear
+from jetblack.calendars.seasons import Season
 from jetblack.calendars.timemath import Clock
 from jetblack.calendars.solar import MEAN_TROPICAL_YEAR, solar_longitude, estimate_prior_solar_longitude
 from jetblack.calendars.utils import reduce_cond, next_int

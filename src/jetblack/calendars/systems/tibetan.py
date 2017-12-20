@@ -2,7 +2,7 @@ import math
 from jetblack.calendars.utils import amod
 from jetblack.calendars.systems.gregorian import GregorianDate
 from jetblack.calendars.utils import reduce_cond, list_range, final_int
-from jetblack.calendars.datemath import MonthOfYear
+from jetblack.calendars.months import MonthOfYear
 
 class TibetanDate(object):
     

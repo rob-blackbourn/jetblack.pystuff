@@ -1,10 +1,9 @@
 import math
 import datetime
 from fractions import Fraction
-from jetblack.calendars.datemath import MonthOfYear, DayOfWeek
+from jetblack.calendars.weekdays import DayOfWeek, nearest_weekday, on_or_after_weekday, after_weekday
+from jetblack.calendars.months import MonthOfYear
 from jetblack.calendars.utils import quotient, amod
-from jetblack.calendars.datemath import nearest_weekday, on_or_after_weekday,\
-    after_weekday
 from jetblack.calendars.ymd import YearMonthDay
 
 class GregorianDate(YearMonthDay):    

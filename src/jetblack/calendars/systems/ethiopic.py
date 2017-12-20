@@ -1,7 +1,7 @@
 from jetblack.calendars.systems.julian import JulianDate
 from jetblack.calendars.systems.coptic import CopticDate
 from jetblack.calendars.ymd import YearMonthDay
-from jetblack.calendars.datemath import MonthOfYear
+from jetblack.calendars.months import MonthOfYear
 
 class EthiopicDate(YearMonthDay):
     

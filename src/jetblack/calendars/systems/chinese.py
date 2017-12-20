@@ -1,7 +1,8 @@
 from mpmath import mpf
 import math
 from jetblack.calendars.systems.gregorian import GregorianDate
-from jetblack.calendars.datemath import MonthOfYear, Season
+from jetblack.calendars.months import MonthOfYear
+from jetblack.calendars.seasons import Season
 from jetblack.calendars.solar import MEAN_TROPICAL_YEAR, solar_longitude, solar_longitude_after, estimate_prior_solar_longitude
 from jetblack.calendars.lunar import MEAN_SYNODIC_MONTH, new_moon_before, new_moon_at_or_after
 from jetblack.calendars.location import Location
